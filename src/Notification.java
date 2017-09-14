@@ -2,7 +2,7 @@ import javax.xml.soap.Text;
 import java.time.LocalDateTime;
 
 
-public class Notification {
+public abstract class Notification {
     private LocalDateTime createdAt;
     private String subject;
     private String body;
@@ -31,13 +31,8 @@ public class Notification {
         return body;
     }
 
-    public void transport(){
-        throw new NoTransportException();
-    }
+    public abstract void transport () throws NoTransportException;
 
-//    public void setStatus(String status) {
-//        this.status = status;
-//    }
 
     public void showStatus(){
         System.out.println("Status: " + getStatus());
@@ -46,6 +41,7 @@ public class Notification {
     protected void showText() {
         System.out.println("TEXT TO RUN!");
     }
+
 }
 
 
@@ -141,9 +137,6 @@ class TextNotification extends Notification{
         System.out.println("The get Subject is : " + getSubject());
         System.out.println("Stamp Provider is : " + getSmsProvider());
         System.out.println("The recipient is : " + getRecipient());
-
-
-
     }
     @Override
     protected void showText(){

@@ -1,10 +1,5 @@
 class Runner {
     public static void main(String[] args) {
-        Notification notification = new Notification("notification", "bodyOfNotif.");
-
-        notification.showText();
-        System.out.println();
-
         EmailNotification emailNotification = new EmailNotification("subject", "Body", "recipient",
                 "stamp Provider");
         System.out.println();
@@ -12,8 +7,8 @@ class Runner {
         emailNotification.transport();
         System.out.println();
 
-        emailNotification.showStatus();
-        System.out.println();
+//        emailNotification.showStatus();
+//        System.out.println();
         emailNotification.showText();
         System.out.println();
         Object newEmailNotification = emailNotification.clone();
